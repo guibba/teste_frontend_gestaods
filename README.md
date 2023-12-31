@@ -12,13 +12,13 @@ Projeto realizado durante o teste de Front-End da empresa GestãoDS.
 
 ### Passos para executar o projeto localmente
 
-Abra o terminal e execute o comando abaixo para clonar o repositório:
+1. Abra o terminal e execute o comando abaixo para clonar o repositório:
 
 ```
 git clone https://github.com/guibba/teste_frontend_gestaods.git
 ```
 
-Em seguida, navegue para o diretório do projeto com o comando:
+2. Em seguida, navegue para o diretório do projeto com o comando:
 
 ```
 cd teste_frontend_gestaods
