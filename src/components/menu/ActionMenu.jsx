@@ -46,7 +46,6 @@ const StyledActionMenu = styled.div`
 const StyledActionMenuItem = styled.div`
   background-color: var(--color-white);
   padding: 10px 16px;
-  cursor: pointer;
   width: 156px;
   border-radius: 0;
   color: var(--color-gray-g300);
@@ -63,6 +62,10 @@ const StyledActionMenuItem = styled.div`
 
   &:last-child {
     border-radius: 0 0 5px 5px;
+  }
+
+  @media screen and (min-width: 1032px) {
+    cursor: pointer;
   }
 `;
 

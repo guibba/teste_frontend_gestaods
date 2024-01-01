@@ -44,8 +44,10 @@ const StyledModalTitle = styled.span`
 const StyledModalCloseButton = styled.button`
   background: none;
   border: none;
-  cursor: pointer;
   font-size: 20px;
+  @media screen and (min-width: 1032px) {
+    cursor: pointer;
+  }
 `;
 
 // Representa o ícone do botão para fechar o modal de confirmação de exclusão

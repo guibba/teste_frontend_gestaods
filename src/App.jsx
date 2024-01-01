@@ -25,6 +25,11 @@ const StyledContainer = styled.div`
   gap: 12px;
 `;
 
+// Engloba a tabela e o cabeçalho
+const StyledContentWrapper = styled.div`
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+`;
+
 // Representa toda a aplicação
 function App() {
   // Estado que armazena temporariamente o identificador do usuário selecionado
@@ -119,13 +124,13 @@ function App() {
           )}
           <main>
             {!isInformationModalOpen && (
-              <>
+              <StyledContentWrapper>
                 <Header onAdd={handleAddButtonClick} />
                 <Table
                   onNameClick={handleNameClick}
                   onActionButtonClick={handleActionButtonClick}
                 />
-              </>
+              </StyledContentWrapper>
             )}
 
             {isInformationModalOpen && (

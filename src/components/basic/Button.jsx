@@ -6,7 +6,6 @@ const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  cursor: pointer;
   font-family: inherit;
   font-size: 14px;
   padding: 8px 8px;
@@ -48,6 +47,9 @@ const StyledButton = styled.button`
           color: var(--color-red-r300);
         `}
     `}
+  @media screen and (min-width: 1032px) {
+    cursor: pointer;
+  }
 `;
 
 // Representa o ícone que pode ser incluído no botão

@@ -48,7 +48,9 @@ Aqui estão os ícones utilizados pelos outros componentes. São componentes sim
 
 - `ActionIcon`
 - `AddIcon`
+- `ArrowDownIcon`
 - `CloseIcon`
+- `DateIcon`
 - `SearchIcon`
 - `SortIcon`
 
@@ -57,6 +59,7 @@ Aqui estão os ícones utilizados pelos outros componentes. São componentes sim
 Neste subdiretório estão os componentes básicos utilizados por toda a aplicação. São eles:
 
 - `Button`
+- `DateInput`
 - `Input`
 - `SearchInput`
 - `Select`

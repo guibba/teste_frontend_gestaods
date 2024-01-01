@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import styled, { css } from "styled-components";
 import { useData, useDataDispatch } from "../../data/DataContext";
 import Button from "../basic/Button";
+import DateInput from "../basic/DateInput";
 import Input from "../basic/Input";
 import Select from "../basic/Select";
 import Textarea from "../basic/Textarea";
@@ -9,7 +10,7 @@ import Textarea from "../basic/Textarea";
 // Representa o container que engloba todo o modal
 const StyledInformationContainer = styled.div`
   max-width: 1032px;
-  min-height: 700px;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -18,8 +19,10 @@ const StyledInformationContainer = styled.div`
   background-color: var(--color-white);
   border-radius: 10px;
   padding: 30px 20px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
   @media screen and (min-width: 1032px) {
+    min-height: 700px;
     margin: 64px auto;
   }
 `;
@@ -39,7 +42,6 @@ const StyledTab = styled.button`
   border: none;
   display: flex;
   align-items: flex-start;
-  cursor: pointer;
   ${(props) =>
     props.$active
       ? css`
@@ -50,6 +52,9 @@ const StyledTab = styled.button`
           color: var(--color-gray-g300);
           box-shadow: 0 2px 0 0 var(--color-border-inactive-tab);
         `}
+  @media screen and (min-width: 1032px) {
+    cursor: pointer;
+  }
 `;
 
 // Representa um container que engloba o conteúdo de cada aba
@@ -211,12 +216,14 @@ const InformationModal = ({ identifier = null, onSave }) => {
           districtRef.current.value = data.bairro;
           cityRef.current.value = data.localidade;
           stateRef.current.value = data.uf;
+          detailsRef.current.value = data.complemento;
         })
         .catch((_) => {
           addressRef.current.value = "";
           districtRef.current.value = "";
           cityRef.current.value = "";
           stateRef.current.value = "";
+          detailsRef.current.value = "";
         });
     }
   }, [cep]);
@@ -287,7 +294,7 @@ const InformationModal = ({ identifier = null, onSave }) => {
           </StyledGridItem>
           <StyledGridItem>
             <label htmlFor="dateOfBirth">Nascimento</label>
-            <Input
+            <DateInput
               type="date"
               name="dateOfBirth"
               id="dateOfBirth"

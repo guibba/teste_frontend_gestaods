@@ -1,5 +1,11 @@
 import { forwardRef, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
+import ArrowDownIcon from "../icons/ArrowDownIcon";
+
+// Engloba o campo de seleção e o ícone da seta
+const StyledSelectWrapper = styled.div`
+  position: relative;
+`;
 
 // Representa todos os campos de seleção (select) da aplicação
 const StyledSelect = styled.select`
@@ -10,7 +16,7 @@ const StyledSelect = styled.select`
   font-family: inherit;
   font-size: 14px;
   background-color: var(--color-white);
-  cursor: pointer;
+  appearance: none;
 
   ${(props) =>
     props.$isSelected
@@ -20,6 +26,23 @@ const StyledSelect = styled.select`
       : css`
           color: var(--color-gray-g75);
         `};
+  @media screen and (min-width: 1032px) {
+    cursor: pointer;
+  }
+`;
+
+// Representa o ícone de seta do campo de seleção
+const StyledArrowDownIcon = styled(ArrowDownIcon)`
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 16px;
+  top: calc(50% - 12px);
+  fill: var(--color-gray-g100);
+  pointer-events: none;
+  @media screen and (min-width: 1032px) {
+    cursor: pointer;
+  }
 `;
 
 // Representa as opções de seleção (option) do componente
@@ -50,18 +73,21 @@ const Select = forwardRef(function Select({ options, ...props }, ref) {
   }
 
   return (
-    <StyledSelect
-      ref={ref}
-      $isSelected={isSelected}
-      onChange={handleChange}
-      {...props}
-    >
-      {options.map((item, i) => (
-        <StyledOption key={i} value={item.value}>
-          {item.label}
-        </StyledOption>
-      ))}
-    </StyledSelect>
+    <StyledSelectWrapper>
+      <StyledSelect
+        ref={ref}
+        $isSelected={isSelected}
+        onChange={handleChange}
+        {...props}
+      >
+        {options.map((item, i) => (
+          <StyledOption key={i} value={item.value}>
+            {item.label}
+          </StyledOption>
+        ))}
+      </StyledSelect>
+      <StyledArrowDownIcon />
+    </StyledSelectWrapper>
   );
 });
 
